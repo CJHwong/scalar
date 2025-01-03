@@ -15,11 +15,13 @@ const props = withDefaults(
     compact?: boolean
     description?: string
     additional?: boolean
+    noncollapsible?: boolean
   }>(),
   {
     level: 0,
     required: false,
     compact: false,
+    noncollapsible: true, // TODO: load from ReferenceConfiguration
   },
 )
 
@@ -210,6 +212,7 @@ const remainingEnumValues = computed(() =>
       <Schema
         :compact="compact"
         :level="level + 1"
+        :noncollapsible="noncollapsible"
         :value="value" />
     </div>
     <!-- Array of objects -->
@@ -220,6 +223,7 @@ const remainingEnumValues = computed(() =>
         <Schema
           :compact="compact"
           :level="level + 1"
+          :noncollapsible="noncollapsible"
           :value="value.items" />
       </div>
     </template>
@@ -237,6 +241,7 @@ const remainingEnumValues = computed(() =>
           <Schema
             :compact="compact"
             :level="level + 1"
+            :noncollapsible="noncollapsible"
             :value="schema" />
         </template>
       </div>
@@ -249,6 +254,7 @@ const remainingEnumValues = computed(() =>
           :key="index"
           :compact="compact"
           :level="level + 1"
+          :noncollapsible="noncollapsible"
           :value="schema" />
       </div>
     </template>

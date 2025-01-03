@@ -10,7 +10,7 @@ withDefaults(
     collapsableItems?: boolean
   }>(),
   {
-    showChildren: false,
+    showChildren: true, // TODO: load from ReferenceConfiguration
     collapsableItems: false,
   },
 )
